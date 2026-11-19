@@ -21,3 +21,16 @@ The midPoint Users page shows seven test identities imported from Simplify HR.
 ![midPoint audit log](./Screenshot%202026-11-17%20081221.png)
 
 The midPoint audit log is filtered to the day of the HR import.
+
+![phpLDAPadmin showing seven OpenLDAP test accounts](https://raw.githubusercontent.com/Obeckley/IAM-Implementation-Portfolio/main/joiner-leaver/Screenshot%202026-11-18%20105305.png)
+
+phpLDAPadmin shows seven test accounts under `ou=people` in OpenLDAP.
+
+![OpenLDAP Accounts view in midPoint](https://raw.githubusercontent.com/Obeckley/IAM-Implementation-Portfolio/main/joiner-leaver/Screenshot%202026-11-18%20105740.png) 
+
+The midPoint OpenLDAP Accounts view shows all seven test accounts linked to their matching midPoint users.
+
+## Configuration Artifacts
+
+- [OpenLDAP outbound mappings](./openldap-outbound-mappings.xml) — defines which midPoint fields populate the LDAP account.
+- [LDAP DN Groovy script](./ldap-dn.groovy) — builds the account’s full directory address from the user ID and the appropriate organizational unit.
