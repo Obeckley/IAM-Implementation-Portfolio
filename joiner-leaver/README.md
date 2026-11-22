@@ -30,6 +30,27 @@ phpLDAPadmin shows seven test accounts under `ou=people` in OpenLDAP.
 
 The midPoint OpenLDAP Accounts view shows all seven test accounts linked to their matching midPoint users.
 
+### Joiner and Leaver Verification
+
+The OpenLDAP directory started with seven test accounts. The count rose
+to eight after John Wick (1008) was provisioned and returned to seven
+after Oliver’s account (1006) was removed.
+
+![midPoint joiner audit event for user 1008](./joiner-audit.png)
+
+The midPoint audit log shows a successful Add object event for John Wick
+during SimplifyHR reconciliation. This is the evidence for the joiner step
+because the eight-account directory view was not captured.
+
+![midPoint leaver audit event for user 1006](./leaver-audit.png)
+
+The midPoint audit log shows a Delete object event for Oliver’s OpenLDAP
+account (`uid=1006`) during reconciliation.
+
+![phpLDAPadmin search results after the leaver step](./post-leaver-ldap.png)
+
+phpLDAPadmin shows seven entries under `ou=people` after the leaver step.
+
 ## Configuration Artifacts
 
 - [OpenLDAP outbound mappings](./openldap-outbound-mappings.xml) — defines which midPoint fields populate the LDAP account.
